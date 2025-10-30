@@ -1,6 +1,10 @@
+@file:Suppress("DEPRECATION")
+
 package com.airtable.interview.airtableschedule.models
 
+
 import java.util.Date
+
 
 object SampleTimelineItems {
     private val year = 2020 - 1900

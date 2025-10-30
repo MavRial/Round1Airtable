@@ -15,6 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.airtable.interview.airtableschedule.models.Event
 
+
 @Suppress("unused")
 @Composable
 fun TimelineContent(lanes: List<List<Event>>) {
