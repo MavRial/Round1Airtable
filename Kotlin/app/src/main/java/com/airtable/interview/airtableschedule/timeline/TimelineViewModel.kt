@@ -17,10 +17,10 @@ class TimelineViewModel: ViewModel() {
 
     val uiState: StateFlow<TimelineUiState> = eventDataRepository
         .getTimelineItems()
-        .map(::TimelineUiState)
+        .map { events -> TimelineUiState(lanes = assignLanes(events)) }
         .stateIn(
             viewModelScope,
-            initialValue = TimelineUiState(),
-            started = SharingStarted.WhileSubscribed()
+            SharingStarted.WhileSubscribed(),
+            TimelineUiState()
         )
 }

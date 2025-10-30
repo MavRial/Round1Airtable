@@ -21,7 +21,7 @@ fun TimelineScreen(
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
-    TimelineView(uiState.events)
+    TimelineView(uiState.lanes)
 }
 
 /**
@@ -31,12 +31,14 @@ fun TimelineScreen(
  * @param events The list of events to display.
  */
 @Composable
-private fun TimelineView(
-    events: List<Event>,
-) {
-    Column(modifier = Modifier.fillMaxWidth()) {
-        events.forEach {
-            EventView(event = it)
+private fun TimelineView(lanes: List<List<Event>>) {
+    LazyColumn {
+        items(lanes) { lane ->
+            Row(modifier = Modifier.fillMaxWidth()) {
+                lane.forEach { event ->
+                    EventView(event)
+                }
+            }
         }
     }
 }
@@ -47,9 +49,22 @@ private fun TimelineView(
  */
 @Composable
 private fun EventView(event: Event) {
-    Column(verticalArrangement = Arrangement.SpaceBetween) {
-        Text(text = event.name)
-        Text(text = event.startDate.toString())
-        HorizontalDivider()
+    val durationDays = ((event.endDate.time - event.startDate.time) / (1000*60*60*24)).toInt() + 1
+
+    Box(
+        modifier = Modifier
+            .width((durationDays * 20).dp)
+            .height(40.dp)
+            .padding(2.dp)
+            .background(Color.Blue),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = event.name,
+            color = Color.White,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+            fontSize = 12.sp
+        )
     }
 }
