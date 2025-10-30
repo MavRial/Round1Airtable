@@ -42,8 +42,68 @@ Each event is represented in **swimlanes**, with support for **horizontal** and 
 
 ---
 
-## ⚙️ How to Run
+## How to Run
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/Round1Airtable.git
+
+2. Open the project in Android Studio
+
+3. Sync Gradle and build the project
+
+4. Run on an emulator or physical device
+
+---
+## Time Spent
+
+Approximately 4 hours to implement the basic Timeline UI.
+Initial commit timestamp confirms development within the allowed timeframe.
+
+---
+
+## What I Liked
+
+Jetpack Compose made UI layout simple and flexible
+
+Automatic lane assignment for overlapping events
+
+Smooth and responsive scrollable timeline
+
+---
+
+## What I Would Improve
+
+Implement drag-and-drop to change event dates
+
+Add zoom in/out functionality for timeline navigation
+
+Persist events using a backend or local database (Room / Firestore)
+
+---
+
+## Design Decisions
+
+Swimlanes used to avoid overlapping events
+
+ScrollState for both horizontal and vertical scroll handling
+
+MVVM pattern for clean separation between UI and data
+
+Simple Event model with name, startDate, and endDate
+
+---
+
+## Testing
+
+Manually tested with multiple sample events for correct lane assignment
+
+Verified scrolling behavior in both directions
+
+---
+
+## Author
+
+Mariano Rial
+Android Developer — Kotlin | Jetpack Compose
+https://www.linkedin.com/in/marianorial-dev/
