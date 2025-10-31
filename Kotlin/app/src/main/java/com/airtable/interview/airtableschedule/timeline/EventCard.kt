@@ -30,7 +30,7 @@ fun EventCard(
         Text(
             text = event.name,
             color = Color.White,
-            fontSize = 12.sp,
+            fontSize = 18.sp,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis
         )

@@ -38,7 +38,7 @@ fun DaysHeader(lanes: List<List<Event>>, scrollState: ScrollState) {
             ) {
                 Text(
                     text = SimpleDateFormat("MMM d", Locale.getDefault()).format(date),
-                    fontSize = 10.sp
+                    fontSize = 14.sp
                 )
             }
         }
